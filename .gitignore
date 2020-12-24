@@ -1,1 +1,14 @@
-/node_modules
+node_modules
+.nyc_output
+coverage
+.history
+logs
+.vscode
+src/public/apidoc
+yarn.lock
+yarn-error.log
+dist
+eureka-client.yml
+package.json
+.DS_Store
+.idea
