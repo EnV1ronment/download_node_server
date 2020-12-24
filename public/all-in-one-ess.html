@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Plus</title>
+  <style>
+    html,
+    body,
+    div,
+    img,
+    a {
+      margin: 0;
+      padding: 0
+    }
+
+    .page-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .page-bg {
+      display: block;
+      width: 100%;
+    }
+
+    .download-btn {
+      display: block;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #2583fc;
+      border: 1px solid #2583fc;
+      border-radius: 10vw;
+      width: 60vw;
+      text-align: center;
+      padding: 0.4em;
+      margin-bottom: 12vw;
+    }
+
+    .message-box {
+      position: absolute;
+      background: #ffffff;
+      width: 100vw;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10vw;
+      padding: 0 1em;
+      box-sizing: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-container">
+    <img class="page-bg" src="./images/background.png" />
+    <div>
+      
+    </div>
+    <a class="download-btn" id="download-btn">Download</a>
+    <a class="download-btn" id="download-btn">Download</a>
+    <a class="download-btn" id="download-btn">Download</a>
+    <a class="download-btn" id="download-btn">Download</a>
+    <a class="download-btn" id="download-btn">Download</a>
+  </div>
+  <script>
+    //2020年写的
+    function download() {
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-20961733-4', 'ioschen.com');
+      var redirected = false;
+      function redirect() {
+        if (redirected) return;
+        redirected = true;
+        location.href = href;
+      }
+      var href = '/';
+      var search = location.search;
+      var type = search.indexOf('qrcode') ? 'QRCode' : 'Other';
+      var ua = navigator.userAgent.toLowerCase();
+      var browser;
+      if (/iphone|ipad|ipod/.test(ua)) {
+        browser = ' Safari ';
+        if (/micromessenger/.test(ua)) {
+          // href = 'http://a.app.qq.com';
+          href = 'https://itunes.apple.com/us/app/id1478203354';
+          //					这里填写苹果用户使用微信打开的地址
+        } else {
+          href = 'https://itunes.apple.com/us/app/id1478203354';
+          // href = 'https://itunes.apple.com/cn';
+          //					这里填写苹果用户使用其他方式打开的地址
+        }
+        ga('set', 'page', '/download/ios' + search);
+        ga('send', 'pageview');
+        ga('send', 'event', type, 'iOS_Download', { 'hitCallback': redirect });
+        setTimeout(redirect, 2000);
+      } else if (/android/.test(ua) || search.indexOf('direct=1') >= 0) {
+        if (/micromessenger/.test(ua)) {
+          browser = '浏览器';
+          // href = 'http://oodsaht79.bkt.clouddn.com/Intel_K-1.2.5.apk';
+          href = 'http://dsp.sgool.cn/wk/APP-WKYN.apk';
+          //					这里填写安卓用户使用其他方式打开的地址
+        } else {
+          // href = 'http://oodsaht79.bkt.clouddn.com/Intel_K-1.2.5.apk';
+          href = 'http://dsp.sgool.cn/wk/APP-WKYN.apk';
+          //					这里填写安卓用户使用微信打开的地址  建议写安装包地址 https://www.ioschen.com/ios.apk
+        }
+        ga('set', 'page', '/download/android' + search);
+        ga('send', 'pageview');
+        ga('send', 'event', type, 'Android_Download', { 'hitCallback': redirect });
+        setTimeout(redirect, 2000);
+      } else if (/windows phone|blackberry/.test(ua)) {
+        ga('set', 'page', '/download/other' + search);
+        ga('send', 'pageview');
+        alert('Sorry, your system is not supported.');
+        location.href = '/';
+      } else {
+        ga('send', 'pageview');
+        location.href = '/';
+      }
+      if (browser) {
+        var div = document.createElement('div');
+        div.className = "message-box";
+        div.appendChild(document.createTextNode('If wechat users cannot install it, please click the jump button in the upper right corner and select "open in browser" to download.'));
+        //				微信跳转的提示
+        document.body.appendChild(div);
+      }
+    }
+    var btn = document.getElementById('download-btn');
+    if (btn) {
+      btn.onclick = download;
+    }
+  </script>
+</body>
+
+</html>
