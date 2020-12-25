@@ -12,3 +12,4 @@ eureka-client.yml
 package.json
 .DS_Store
 .idea
+.bin

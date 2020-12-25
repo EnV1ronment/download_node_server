@@ -21,9 +21,73 @@
       overflow: hidden;
     }
 
+    .logo {
+      position: absolute;
+      height: 2.5%;
+      top: 3%;
+      left: 2%;
+    }
+
+    .title {
+      position: absolute;
+      left: 50%;
+      top: 6%;
+      width: 60vw;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+
+    .subheading {
+      position: absolute;
+      left: 50%;
+      top: 9%;
+      transform: translateX(-50%);
+    }
+
     .page-bg {
       display: block;
       width: 100%;
+    }
+
+    .tab {
+      display: block;
+      width: 96%;
+      position: relative;
+      border-radius: 2vw;
+      height: 50vw;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 2vw;
+    }
+
+    .tab-bg {
+      display: block;
+      width: 100%;
+    }
+
+    .phone {
+      position: absolute;
+      left: 10%;
+      bottom: 0%;
+      width: 28%;
+    }
+    
+    .textArea {
+      position: absolute;
+      left: 40%;
+      top: 10vw;
+      width: 60%;
+    }
+
+    .text {
+      display: block;
+      font-size: 5vw;
+      margin-bottom: 5vw;
+    }
+
+    .description {
+      display: block;
+      font-size: 3vw;
     }
 
     .download-btn {
@@ -57,15 +121,49 @@
 
 <body>
   <div class="page-container">
-    <img class="page-bg" src="./images/background.png" />
-    <div>
-      
+    <img class="logo" src="./images/logo.svg" />
+    <div class="title">
+      <span style="font-size: 6vw">Service</span>
     </div>
-    <a class="download-btn" id="download-btn">Download</a>
-    <a class="download-btn" id="download-btn">Download</a>
-    <a class="download-btn" id="download-btn">Download</a>
-    <a class="download-btn" id="download-btn">Download</a>
-    <a class="download-btn" id="download-btn">Download</a>
+    <div class="subheading">
+      <span style="font-size: 3vw"></span>
+    </div>
+    <img class="page-bg" src="./images/background.png" />
+    <div class="tab" id="download-btn" style="background-color: rgb(255,224,64)">
+      <img class="phone" src="./images/phone1.png" />
+      <div class="textArea">
+        <span class="text">App Download</span>
+        <span class="description"></span>
+      </div>
+    </div>
+    <div class="tab" style="background-color: rgb(145,229,230)">
+      <img class="phone" src="./images/phone2.png" />
+      <div class="textArea">
+        <span class="text">Datesheet</span>
+        <span class="description"></span>
+      </div>
+    </div>
+    <div class="tab" style="background-color: rgb(252,150,118)">
+      <img class="phone" src="./images/phone3.png" />
+      <div class="textArea">
+        <span class="text">User Manual & Installation Manual</span>
+        <span class="description"></span>
+      </div>
+    </div>
+    <div class="tab" style="background-color: rgb(196,235,94)">
+      <img class="phone" src="./images/phone4.png" />
+      <div class="textArea">
+        <span class="text">Warranty</span>
+        <span class="description"></span>
+      </div>
+    </div>
+    <div class="tab" style="background-color: rgb(118,143,252)">
+      <img class="phone" src="./images/phone5.png" />
+      <div class="textArea">
+        <span class="text">Video</span>
+        <span class="description"></span>
+      </div>
+    </div>
   </div>
   <script>
     //2020年写的
